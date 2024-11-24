@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chat with the Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 10px;
+            width: 300px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 60px;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        #saveApiKey {
+            background-color: #28a745;
+        }
+
+        .messages {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .message {
+            margin-bottom: 10px;
+        }
+
+        .message.user {
+            text-align: right;
+            font-weight: bold;
+        }
+
+        .message.bot {
+            text-align: left;
+        }
+
+        .error {
+            color: red;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        #apiKeySection {
+            margin-bottom: 10px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Chat with the Page</h3>
+    <div id="apiKeySection" class="hidden">
+        <label for="apiKey">API Key:</label>
+        <input type="password" id="apiKey" placeholder="Enter OpenAI API Key" />
+        <button id="saveApiKey">Save</button>
+    </div>
+    <div id="apiKeySavedMessage" class="hidden">
+        <p>API Key is already saved. You're ready to chat!</p>
+    </div>
+    <div class="messages" id="messages" aria-live="polite"></div>
+    <textarea id="userInput" placeholder="Type your message..." aria-label="Type your message"></textarea>
+    <div>
+        <button id="send" tabindex="0">Send</button>
+        <button id="reset" tabindex="0">Reset Chat</button>
+    </div>
+    <div class="error" id="error"></div>
+    <script src="popup.js"></script>
+</body>
+
+</html>
